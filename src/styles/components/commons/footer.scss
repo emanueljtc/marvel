@@ -1,0 +1,21 @@
+.footer {
+  background-color: $color-footer;
+  color: $color-text-footer;
+
+  > .inner {
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > .date{
+      .span{
+        margin-right: 10px;
+      }
+    }
+
+   
+  }
+}

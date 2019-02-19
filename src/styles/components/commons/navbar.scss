@@ -1,0 +1,284 @@
+.navbar {
+  
+  > .inner {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.54);
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    justify-content: center;
+
+    &.shadow-dark {
+      box-shadow: 0px 3px 15px 3px rgba(0, 0, 0, 0.45);
+    }
+
+    &.shadow-light {
+      box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.45);
+    }
+
+    /*  Breakpoints */
+    @include breakpoint(large) {
+      padding: 1rem 3rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(medium) {
+      justify-items: center;
+      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Button Menu Mobile */
+    .nav {
+      -webkit-transition: left 0.5s ease;
+      -o-transition: left 0.5s ease;
+      transition: left 0.5s ease;
+      background: $color-gray-dark-form;
+      color: $color-text-dark;
+      cursor: pointer;
+      font-size: 2rem;
+      height: 100%;
+      width: 100%;
+      left: -100%;
+      padding: 6rem 2rem 2rem 2rem;
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+
+      @include breakpoint(medium) {
+        display: none;
+      }
+
+      @include breakpoint(large) {
+        display: none;
+      }
+
+      &.expanded {
+        left: 0;
+      }
+
+      > .nav-list {
+        position: absolute;
+        top: 40%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        > .link {
+          color: $color-text-dark;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-text-footer;
+          }
+        }
+      }
+    }
+
+    .nav-toggle {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      cursor: pointer;
+      height: 100%;
+      width: 2rem;
+      position: relative;
+      z-index: 2;
+
+      @include breakpoint(medium) {
+        display: none;
+      }
+
+      @include breakpoint(large) {
+        display: none;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      .nav-toggle-bar,
+      .nav-toggle-bar::after,
+      .nav-toggle-bar::before {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        background: $color-primary;
+        content: '';
+        height: 0.4rem;
+        width: 100%;
+      }
+
+      .nav-toggle-bar,
+      .nav-toggle-bar::after,
+      .nav-toggle-bar::before {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        background: $color-primary;
+        content: '';
+        height: 0.4rem;
+        width: 100%;
+      }
+
+      .nav-toggle-bar {
+        margin-top: 0;
+      }
+
+      .nav-toggle-bar::after {
+        margin-top: 0.8rem;
+      }
+
+      .nav-toggle-bar::before {
+        margin-top: -0.8rem;
+      }
+
+      &.expanded .nav-toggle-bar {
+        background: transparent;
+      }
+
+      &.expanded .nav-toggle-bar::after,
+      &.expanded .nav-toggle-bar::before {
+        background: $color-primary;
+        margin-top: 0;
+      }
+
+      &.expanded .nav-toggle-bar::after {
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      &.expanded .nav-toggle-bar::before {
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+    }
+
+    /* logo */
+    > .link-logo {
+      position: relative;
+      z-index: 2;
+      margin-left: 2rem;
+
+      > .logo {
+        width: 60%;
+        max-width: 80%;
+
+        @include breakpoint(medium) {
+          width: 80%;
+        }
+       
+      }
+    }
+
+    /* #endregion */
+
+    .content {
+      margin: auto;
+      margin-right: 0;
+      display: none;
+
+      @include breakpoint(medium) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* menu-list */
+      > .menu-list {
+        margin: 0 0 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.black {
+          color: $color-text-black;
+        }
+
+        &.blue {
+          color: $color-text-blue;
+        }
+
+        @include breakpoint(medium) {
+          margin: auto;
+        }
+
+        > .item {
+          text-transform: uppercase;
+          font-family: 'Roboto', sans-serif;
+          white-space: nowrap;
+          margin: 0 1rem;
+
+          .number {
+            position: relative;
+            bottom: 6px;
+            font-size: 20px;
+
+            &.white {
+              color: $color-text-white;
+            }
+          }
+
+          &:nth-child(5) {
+            position: relative;
+            bottom: 8px;
+            width: 40px;
+            height: 40px;
+
+            .icon {
+              position: relative;
+              top: 3px;
+              width: 100%;
+              height: 100%;
+
+              .blue {
+                fill: $color-text-blue;
+              }
+
+              .black {
+                fill: $color-text-black;
+              }
+            }
+          }
+
+          > .anchor {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      /* #endregion */
+
+      
+    }
+  }
+}
